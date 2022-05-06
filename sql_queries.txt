@@ -1,0 +1,50 @@
+// CREATE TABLE..
+create table dummy_table(name varchar(20),address text,age int);
+
+// INSERT..
+insert into dummy_table values('XYZ','location-A',25);
+
+// SELECT..
+select * from dummy_table;
+
+// UPDATE QUERY..
+update dummy_table set age=50 where name='PQR';
+update dummy_table set name='GHI',age=54 where address='location-D';
+
+// UPDATE ALL..
+update dummy_table set age=54,address='location-X';
+
+//DELETE..
+delete from dummy_table where age=65;
+
+// COMPARISON OPERATORS..
+select * from dummy_table where age <=50;
+select * from dummy_table where age<>50;(NOT-EQUAL)
+
+// IF-ELSE..
+Do
+             $$
+             Declare
+              abc int;
+              xyz int;
+              begin
+              abc:=100;
+              xyz:=abc;
+              if abc=xyz then
+               xyz=150;  
+              raise notice '%',xyz;
+             else
+             end if;              
+             end;
+               $$
+;
+NOTICE:  150
+DO
+
+//CASE EXPRESSOIN..
+SELECT age,
+       CASE age WHEN 25 THEN 'one'
+              WHEN 50 THEN 'two'
+              ELSE 'other'
+       END
+    FROM  dummy_table;
